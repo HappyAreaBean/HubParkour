@@ -53,6 +53,12 @@
                             <excludes>
                                 <exclude>META-INF/*.txt</exclude>
                                 <exclude>META-INF/*.MF</exclude>
+                                <exclude>com/cryptomorin/xseries/X*</exclude>
+                                <exclude>com/cryptomorin/xseries/NoteBlockMusic*</exclude>
+                                <exclude>com/cryptomorin/xseries/abstractions/</exclude>
+                                <exclude>com/cryptomorin/xseries/messages/</exclude>
+                                <exclude>com/cryptomorin/xseries/particles/</exclude>
+                                <exclude>com/cryptomorin/xseries/profiles/</exclude>
                             </excludes>
                         </filter>
                     </filters>
@@ -120,6 +126,11 @@
             <artifactId>bstats-bukkit</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.cryptomorin</groupId>
+            <artifactId>XSeries</artifactId>
+            <version>11.2.1</version>
         </dependency>
     </dependencies>
 
