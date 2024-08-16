@@ -369,9 +369,9 @@ public class HubParkour extends JavaPlugin {
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Hide.Slot", 8) != -1) {
-            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0), "hide-players");
+            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0), "show-players");
             CacheManager.setItem(4, item);
-            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0), "show-players");
+            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0), "hide-players");
             CacheManager.setItem(3, item);
         }
 
