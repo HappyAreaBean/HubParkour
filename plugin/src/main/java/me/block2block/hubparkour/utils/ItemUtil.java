@@ -12,7 +12,7 @@ import java.util.Arrays;
 @SuppressWarnings("deprecation")
 public class ItemUtil {
 
-    public static ItemStack ci(Material type, String name, int amount, String lore, short data, String skullName) {
+    public static ItemStack ci(Material type, String name, int amount, String lore, short data, String skullName, String action) {
         ItemStack is = new ItemStack(type, amount, data);
         ItemMeta im = is.getItemMeta();
         im.setDisplayName(HubParkour.c(false, name));
@@ -33,13 +33,20 @@ public class ItemUtil {
 
         im.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES);
         is.setItemMeta(im);
+
+        if (action != null) {
+            is = NBTEditor.set(is, action, NBTEditor.CUSTOM_DATA, "hubparkour_item");
+        }
         return is;
     }
+    public static ItemStack ci(Material type, String name, int amount, String lore, short data, String action) {
+        return ci(type, name, amount, lore, data, null, action);
+    }
     public static ItemStack ci(Material type, String name, int amount, String lore, short data) {
-        return ci(type, name, amount, lore, data, null);
+        return ci(type, name, amount, lore, data, null, null);
     }
     public static ItemStack ci(Material type, String name, int amount, String lore) {
-        return ci(type, name, amount, lore, (short)0);
+        return ci(type, name, amount, lore, (short)0, null);
     }
     public static ItemStack ci(Material type, String name, int amount) {
         return ci(type, name, amount, null);

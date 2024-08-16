@@ -354,24 +354,24 @@ public class HubParkour extends JavaPlugin {
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Slot", 6) != -1) {
-            ItemStack item = ItemUtil.ci(cancel, ConfigUtil.getString("Settings.Parkour-Items.Cancel.Name", "&cCancel"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Item-Data", 0));
+            ItemStack item = ItemUtil.ci(cancel, ConfigUtil.getString("Settings.Parkour-Items.Cancel.Name", "&cCancel"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Item-Data", 0), "cancel");
             CacheManager.setItem(2, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Reset.Slot", 5) != -1) {
-            ItemStack item = ItemUtil.ci(reset, ConfigUtil.getString("Settings.Parkour-Items.Reset.Name", "&cReset"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Reset.Item-Data", 0));
+            ItemStack item = ItemUtil.ci(reset, ConfigUtil.getString("Settings.Parkour-Items.Reset.Name", "&cReset"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Reset.Item-Data", 0), "reset");
             CacheManager.setItem(0, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Slot", 4) != -1) {
-            ItemStack item = ItemUtil.ci(checkpoint, ConfigUtil.getString("Settings.Parkour-Items.Checkpoint.Name", "&aTeleport to Last Checkpoint"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Item-Data", 0));
+            ItemStack item = ItemUtil.ci(checkpoint, ConfigUtil.getString("Settings.Parkour-Items.Checkpoint.Name", "&aTeleport to Last Checkpoint"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Item-Data", 0), "checkpoint");
             CacheManager.setItem(1, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Hide.Slot", 8) != -1) {
-            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0));
+            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0), "hide-players");
             CacheManager.setItem(4, item);
-            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0));
+            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0), "show-players");
             CacheManager.setItem(3, item);
         }
 
