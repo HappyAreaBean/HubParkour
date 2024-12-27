@@ -53,12 +53,6 @@
                             <excludes>
                                 <exclude>META-INF/*.txt</exclude>
                                 <exclude>META-INF/*.MF</exclude>
-                                <exclude>com/cryptomorin/xseries/X*</exclude>
-                                <exclude>com/cryptomorin/xseries/NoteBlockMusic*</exclude>
-                                <exclude>com/cryptomorin/xseries/abstractions/</exclude>
-                                <exclude>com/cryptomorin/xseries/messages/</exclude>
-                                <exclude>com/cryptomorin/xseries/particles/</exclude>
-                                <exclude>com/cryptomorin/xseries/profiles/</exclude>
                             </excludes>
                         </filter>
                     </filters>
@@ -145,11 +139,7 @@
         </repository>
         <repository>
             <id>placeholderapi</id>
-            <url>https://repo.extendedclip.com/releases/</url>
-        </repository>
-        <repository>
-            <id>codemc</id>
-            <url>https://repo.codemc.io/repository/maven-public/</url>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
     </repositories>
 
