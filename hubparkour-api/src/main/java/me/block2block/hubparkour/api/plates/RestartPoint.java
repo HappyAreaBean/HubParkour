@@ -6,7 +6,7 @@ public class RestartPoint extends PressurePlate {
 
     @SuppressWarnings("unused")
     public RestartPoint(Location location) {
-        super(location);
+        super(location, null);
     }
 
     @Override
