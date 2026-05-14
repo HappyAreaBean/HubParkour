@@ -16,11 +16,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b53f693-728c-414c-8031-dbb84f846e1e" name="Default Changelist" comment="v2.7.5: Bugfixes&#10; - Fixed a bug with DecentHologram integration where holograms would not generate due to a naming issue.&#10; - Fixed a bug where signs would not delete from the database correctly.&#10; - Signs that are removed from the world but not deleted from the database will now regenerate in the correct orientation.&#10; - Pressure plates can now be of any block type, including air.&#10; - Optimised how players who join a new parkour when alraedy in one are handled.&#10; - Fixed a bug where armor that add health to the user causes the player to keep that health permanently when they come out of the parkour.&#10; - Fixed some logging messages so that they all use the [HubParkour] prefix.&#10; - Fixed a bug with the PlaceholderAPI extension where some messages were not using configured messages.&#10; - Fixed a bug when admins delete a parkour, players were not given their items back.&#10;&#10;Signed-off-by: Block2Block &lt;accounts@block2block.me&gt;">
-      <change afterPath="$PROJECT_DIR$/.idea/HubParkour.iml" afterDir="false" />
+    <list default="true" id="7b53f693-728c-414c-8031-dbb84f846e1e" name="Default Changelist" comment="chore: cherry-pick from pr #40">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hubparkour-api/hubparkour-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugin/plugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/src/main/java/me/block2block/hubparkour/utils/NBTEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/src/main/java/me/block2block/hubparkour/utils/NBTEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +80,9 @@
     </expand>
     <select />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="98" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -114,13 +119,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="master" />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -131,12 +129,16 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="1TI7TQ5gQYXoPkbFk5MlUB2PiMY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -144,23 +146,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.hubparkour [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Programming Projects/Java/HubParkour&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.hubparkour [clean,package].executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/bean/Documents/BuildProject/HubParkour",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java Projects\HubParkour\src\main\resources" />
@@ -233,16 +242,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.index.html" />
       <item itemvalue="Maven.hubparkour [clean,package]" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -996,13 +997,35 @@
       <option name="project" value="LOCAL" />
       <updated>1681495150549</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="upstream/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="eb554fbc-e101-47e3-bdb8-866ceb515743" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="1">
@@ -1031,7 +1054,41 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="upstream/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="eb554fbc-e101-47e3-bdb8-866ceb515743">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="upstream/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -1041,8 +1098,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="v2.5.4: Bug Fix&#10;- Fixed a bug where leaderboard holograms would generate an error when refreshed after a user has completed the parkour" />
-    <MESSAGE value="v2.5.5: More bug fixes&#10;- Fixed a bug where starting a new parkour while already in one would not give you the parkour items.&#10;- Fixed a bug where when the milliseconds was less than 100/10, 0's would be missing from the times resulting in times appearing wrong.&#10;- Fixed a bug where when including the plugin in a command, HubParkour commands were not whitelisted from command blocking.&#10;- Fixed some default config messages having &quot;reached&quot; twice." />
     <MESSAGE value="v2.5.6: Placeholder and health bugfixes.&#10;- Fixed a bug with the besttime and recordholder placeholders showing last instead of first place.&#10;- Fixed a bug with the plugin when setting health after finishing a parkour when the player had more than normal health when starting the parkour." />
     <MESSAGE value="v2.6: Parkour signs, borders, hide players and more!&#10;- 1.18 version support.&#10;- Version support should now be automatic, unless changes are needed due to API changes.&#10;- New parkour statistics feature.&#10;- New positional placeholders for PlaceholderAPI&#10;- 2 new admin commands to reset all of the times of a specific player on all parkours, or for all players on all parkours.&#10;- New ability to hide/show players while in a parkour.&#10;- New parkour borders, which teleports the user back when they fall outside of it.&#10;- New HubParkour signs for teleporting to, starting and getting stats for specific parkours.&#10;- New rewards cooldown feature to set a cooldown for rewards.&#10;- The developer API has be rejigged so that only the API is exposed to the developer unless the JAR is added directly as a library in your IDE to aid development.&#10;- The organisation of the source code has been moved around, so as to aid the deployment of the API.&#10;- Fixed a bug where commands were case sensitive.&#10;- Fixed a bug where the wrong permission nodes were being used for /parkour input, /parkour done and /parkour cancel.&#10;- Fixed a bug when editing a parkour name.&#10;- Fixed a bug with SSL requirements with MySQL would cause the plugin not to load.&#10;- Fixed a bug where a user would receive double rewards if they completed the parkour for the first time." />
     <MESSAGE value="v2.6.1: Bug fixes&#10;- Fixed a bug where commands would not get executed properly for rewards.&#10;- Fixed a bug where waterlogged blocks would not count as water when Teleport-On-Water is enabled." />
@@ -1066,6 +1121,8 @@
     <MESSAGE value="v2.7.3: Schema Bugfix&#10; - Fixed a bug where the MySQL table columns were the wrong way round. The database will automatically migrate to the correct structure." />
     <MESSAGE value="v2.7.4: Bugfixes&#10; - Fixed a bug with DecentHologram integration where holograms would not generate due to a naming issue.&#10; - Fixed a bug where signs would not delete from the database correctly.&#10; - Signs that are removed from the world but not deleted from the database will now regenerate in the correct orientation. &#10; - Pressure plates can now be of any block type, including air.&#10; - Optimised how players who join a new parkour when alraedy in one are handled.&#10; - Fixed a bug where armor that add health to the user causes the player to keep that health permanently when they come out of the parkour.&#10; - Fixed some logging messages so that they all use the [HubParkour] prefix.&#10; - Fixed a bug with the PlaceholderAPI extension where some messages were not using configured messages. &#10; - Fixed a bug when admins delete a parkour, players were not given their items back." />
     <MESSAGE value="v2.7.4: Bugfixes&#10; - Fixed a bug with DecentHologram integration where holograms would not generate due to a naming issue.&#10; - Fixed a bug where signs would not delete from the database correctly.&#10; - Signs that are removed from the world but not deleted from the database will now regenerate in the correct orientation.&#10; - Pressure plates can now be of any block type, including air.&#10; - Optimised how players who join a new parkour when alraedy in one are handled.&#10; - Fixed a bug where armor that add health to the user causes the player to keep that health permanently when they come out of the parkour.&#10; - Fixed some logging messages so that they all use the [HubParkour] prefix.&#10; - Fixed a bug with the PlaceholderAPI extension where some messages were not using configured messages.&#10; - Fixed a bug when admins delete a parkour, players were not given their items back.&#10;&#10;Signed-off-by: Block2Block &lt;accounts@block2block.me&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.7.4: Bugfixes&#10; - Fixed a bug with DecentHologram integration where holograms would not generate due to a naming issue.&#10; - Fixed a bug where signs would not delete from the database correctly.&#10; - Signs that are removed from the world but not deleted from the database will now regenerate in the correct orientation.&#10; - Pressure plates can now be of any block type, including air.&#10; - Optimised how players who join a new parkour when alraedy in one are handled.&#10; - Fixed a bug where armor that add health to the user causes the player to keep that health permanently when they come out of the parkour.&#10; - Fixed some logging messages so that they all use the [HubParkour] prefix.&#10; - Fixed a bug with the PlaceholderAPI extension where some messages were not using configured messages.&#10; - Fixed a bug when admins delete a parkour, players were not given their items back.&#10;&#10;Signed-off-by: Block2Block &lt;accounts@block2block.me&gt;" />
+    <MESSAGE value="build: update deps" />
+    <MESSAGE value="chore: cherry-pick from pr #40" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: cherry-pick from pr #40" />
   </component>
 </project>
