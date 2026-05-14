@@ -1,6 +1,5 @@
 package me.block2block.hubparkour;
 
-import com.cryptomorin.xseries.reflection.XReflection;
 import me.block2block.hubparkour.api.BackendAPI;
 import me.block2block.hubparkour.api.db.DatabaseSchemaUpdate;
 import me.block2block.hubparkour.api.plates.PressurePlate;
@@ -67,34 +66,52 @@ public class HubParkour extends JavaPlugin {
 
         new Metrics(this, 14109);
 
-        if (XReflection.supports(13)) {
+        final String packageName = Bukkit.getServer().getClass().getPackage().getName();
+        final String[] versionParts = packageName.split("\\.");
+
+        if(versionParts.length > 3) {
+            switch (versionParts[3]) {
+                case "v1_12_R1":
+                case "v1_11_R1":
+                case "v1_10_R1":
+                    post1_9 = true;
+                case "v1_9_R1":
+                case "v1_9_R2":
+                    //Elytras are present in this version, register Elytra listener.
+                    Bukkit.getPluginManager().registerEvents(new ElytraListener(), this);
+                    getLogger().info("Legacy server version detected (1.8-1.12).");
+                    pre1_13 = true;
+                    post1_8 = true;
+                    break;
+                case "v1_8_R1":
+                case "v1_8_R2":
+                case "v1_8_R3":
+                    getLogger().info("Legacy server version detected (1.8-1.12).");
+                    pre1_13 = true;
+                    post1_8 = false;
+                    break;
+                default:
+                    pre1_13 = false;
+                    post1_8 = true;
+                    post1_9 = true;
+                    getLogger().info("1.13+ server version detected.");
+                    //Elytras are present in this version, register Elytra listener.
+                    Bukkit.getPluginManager().registerEvents(new ElytraListener(), this);
+                    Bukkit.getPluginManager().registerEvents(new PotionListener(), this);
+                    break;
+            }
+        } else {
+
+            // this happens due to the remapping of the package version in paper.
+            // it only happens for version >= 1.20.6
+
             pre1_13 = false;
             post1_8 = true;
             post1_9 = true;
-        } else if (XReflection.supports(9)) {
-            pre1_13 = true;
-            post1_8 = true;
-        } else if (XReflection.supports(10)) {
-            post1_9 = true;
-        }
-
-        if (pre1_13 && post1_8 && post1_9) {
-            //Elytras are present in this version, register Elytra listener.
-            Bukkit.getPluginManager().registerEvents(new ElytraListener(), this);
-            getLogger().info("Legacy server version detected (1.8-1.12).");
-        }
-
-        if (pre1_13 && !post1_8) {
-            getLogger().info("Legacy server version detected (1.8-1.12).");
-        }
-
-        if (!pre1_13 && post1_8 && post1_9) {
             getLogger().info("1.13+ server version detected.");
-            //Elytras are present in this version, register Elytra listener.
             Bukkit.getPluginManager().registerEvents(new ElytraListener(), this);
             Bukkit.getPluginManager().registerEvents(new PotionListener(), this);
         }
-
 
         //Generating/Loading Config File
         if (!getDataFolder().exists()) getDataFolder().mkdir();
@@ -354,24 +371,24 @@ public class HubParkour extends JavaPlugin {
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Slot", 6) != -1) {
-            ItemStack item = ItemUtil.ci(cancel, ConfigUtil.getString("Settings.Parkour-Items.Cancel.Name", "&cCancel"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Item-Data", 0), "cancel");
+            ItemStack item = ItemUtil.ci(cancel, ConfigUtil.getString("Settings.Parkour-Items.Cancel.Name", "&cCancel"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Cancel.Item-Data", 0));
             CacheManager.setItem(2, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Reset.Slot", 5) != -1) {
-            ItemStack item = ItemUtil.ci(reset, ConfigUtil.getString("Settings.Parkour-Items.Reset.Name", "&cReset"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Reset.Item-Data", 0), "reset");
+            ItemStack item = ItemUtil.ci(reset, ConfigUtil.getString("Settings.Parkour-Items.Reset.Name", "&cReset"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Reset.Item-Data", 0));
             CacheManager.setItem(0, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Slot", 4) != -1) {
-            ItemStack item = ItemUtil.ci(checkpoint, ConfigUtil.getString("Settings.Parkour-Items.Checkpoint.Name", "&aTeleport to Last Checkpoint"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Item-Data", 0), "checkpoint");
+            ItemStack item = ItemUtil.ci(checkpoint, ConfigUtil.getString("Settings.Parkour-Items.Checkpoint.Name", "&aTeleport to Last Checkpoint"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Checkpoint.Item-Data", 0));
             CacheManager.setItem(1, item);
         }
 
         if (ConfigUtil.getInt("Settings.Parkour-Items.Hide.Slot", 8) != -1) {
-            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0), "show-players");
+            ItemStack item = ItemUtil.ci(hidden, ConfigUtil.getString("Settings.Parkour-Items.Hide.Hidden.Name", "&cShow all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Hidden.Item-Data", 0));
             CacheManager.setItem(4, item);
-            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0), "hide-players");
+            item = ItemUtil.ci(shown, ConfigUtil.getString("Settings.Parkour-Items.Hide.Shown.Name", "&aHide all players"), 1, "", (short) ConfigUtil.getInt("Settings.Parkour-Items.Hide.Shown.Item-Data", 0));
             CacheManager.setItem(3, item);
         }
 
