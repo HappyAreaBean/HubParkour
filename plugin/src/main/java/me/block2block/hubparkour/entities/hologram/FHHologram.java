@@ -24,6 +24,7 @@ public class FHHologram implements IHologram {
     public FHHologram(IParkour parkour, String name, Location location) {
         TextHologramData data = new TextHologramData(name, location);
         data.setPersistent(false);
+        data.setTextUpdateInterval(20);
 
         HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
         hologram = manager.getHologram(name).orElse(null);
